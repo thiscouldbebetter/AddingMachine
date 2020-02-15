@@ -1,0 +1,66 @@
+<html>
+
+<div id="divUI">
+
+	<label>Addends:</label><br />	
+	<textarea id="textareaAddends" cols="80" rows="25">
+1
+2
+fizz
+4
+buzz
+
+42 (The answer to everything.)
+<=(1,337)=>
+0.999999999
+-40 (Celsius or Fahrenheit?)
+...
+How many licks does it take? 3, that's how many.
+	</textarea><br />
+	<button onclick="buttonAdd_Clicked();">Add</button><br />
+	<label>Sum:</label><br />
+	<input id="inputSum"></input><br />
+	
+</div>
+
+<script type="text/javascript">
+
+// ui event handlers
+
+function buttonAdd_Clicked()
+{
+	var textareaAddends = document.getElementById("textareaAddends");
+
+	var addendsAsString = textareaAddends.value;
+	var addendsAsLines = addendsAsString.split("\n");
+
+	var charsToKeep = "0123456789.-";
+
+	var sumSoFar = 0;
+	for (var i = 0; i < addendsAsLines.length; i++)
+	{
+		var addendAsLine = addendsAsLines[i];
+		var addendTrimmed = "";
+		for (var j = 0; j < addendAsLine.length; j++)
+		{
+			var addendChar = addendAsLine[j];
+			if (charsToKeep.indexOf(addendChar) >= 0)
+			{
+				addendTrimmed += addendChar;
+			}
+		}
+		var addendAsNumber = parseFloat(addendTrimmed);
+		if (isNaN(addendAsNumber) == false)
+		{
+			sumSoFar += addendAsNumber;
+		}
+	}
+	
+	var inputSum = document.getElementById("inputSum");
+	inputSum.value = sumSoFar;
+}
+
+</script>
+
+</body>
+</html>
