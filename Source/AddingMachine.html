@@ -2,7 +2,16 @@
 
 <div id="divUI">
 
-	<label>Addends:</label><br />	
+	<h3>Adding Machine</h3>
+
+	<p>
+		Specify addends on the lines below, then click the Add button to find
+		their sum.  Note that all non-numeric characters will be ignored.
+	</p>
+
+	<label>Addends:</label><br />
+	<button onclick="buttonClear_Clicked();">Clear</button>
+	<br />
 	<textarea id="textareaAddends" cols="80" rows="25">
 1
 2
@@ -58,6 +67,13 @@ function buttonAdd_Clicked()
 	
 	var inputSum = document.getElementById("inputSum");
 	inputSum.value = sumSoFar;
+}
+
+function buttonClear_Clicked()
+{
+	var textareaAddends = document.getElementById("textareaAddends");
+
+	textareaAddends.value = "";
 }
 
 </script>
